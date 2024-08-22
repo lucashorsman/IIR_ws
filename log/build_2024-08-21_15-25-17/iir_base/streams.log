@@ -1,0 +1,5 @@
+[0.010s] Invoking command in '/home/riplab/IIR_ws/build/iir_base': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/riplab/IIR_ws/build/iir_base -- -j16 -l16
+[0.022s] [0mCMake Error: The source directory "/home/riplab/IIR_ws/src/IIR_base" does not exist.
+[0.022s] Specify --help for usage, or press the help button on the CMake GUI.[0m
+[0.022s] gmake: *** [Makefile:226: cmake_check_build_system] Error 1
+[0.024s] Invoked command in '/home/riplab/IIR_ws/build/iir_base' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/riplab/IIR_ws/build/iir_base -- -j16 -l16
