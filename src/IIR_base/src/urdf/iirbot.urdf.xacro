@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- Basic differential drive mobile base -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iirbot">
-  <xacro:arg name="prefix" default="_" />
+  <xacro:arg name="prefix" default="" />
   <xacro:arg name="use_mock_hardware" default="false" />
 
   <xacro:include filename="$(find iir_base)/urdf/iir_description.urdf.xacro" />

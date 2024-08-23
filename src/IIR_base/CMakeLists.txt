@@ -10,9 +10,22 @@ find_package(ament_cmake REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+find_package(pluginlib REQUIRED) # Add this line
 
-install(DIRECTORY src/urdf/
+
+pluginlib_export_plugin_description_file(hardware_interface ros2_control_demo_example_2.xml)
+
+install(DIRECTORY src/urdf/ 
   DESTINATION share/${PROJECT_NAME}/urdf
+)
+install(DIRECTORY src/launch/ 
+  DESTINATION share/${PROJECT_NAME}/launch
+)
+install(DIRECTORY src/config/ 
+  DESTINATION share/${PROJECT_NAME}/config
+)
+install(DIRECTORY src/hardware/ 
+  DESTINATION share/${PROJECT_NAME}/hardware
 )
 
 if(BUILD_TESTING)
