@@ -11,9 +11,8 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 find_package(pluginlib REQUIRED) # Add this line
-
-
-pluginlib_export_plugin_description_file(hardware_interface ros2_control_demo_example_2.xml)
+find_package(diff_drive_controller)
+pluginlib_export_plugin_description_file(hardware_interface diffbot.xml)
 
 install(DIRECTORY src/urdf/ 
   DESTINATION share/${PROJECT_NAME}/urdf

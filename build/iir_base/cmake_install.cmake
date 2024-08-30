@@ -43,7 +43,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/iir_base" TYPE FILE FILES "/home/riplab/IIR_ws/src/IIR_base/ros2_control_demo_example_2.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/iir_base" TYPE FILE FILES "/home/riplab/IIR_ws/src/IIR_base/diffbot.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
