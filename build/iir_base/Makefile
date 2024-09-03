@@ -197,6 +197,91 @@ iir_base_uninstall/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iir_base_uninstall.dir/build.make CMakeFiles/iir_base_uninstall.dir/build
 .PHONY : iir_base_uninstall/fast
 
+#=============================================================================
+# Target rules for targets named diff_drive_controller
+
+# Build rule for target.
+diff_drive_controller: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 diff_drive_controller
+.PHONY : diff_drive_controller
+
+# fast build rule for target.
+diff_drive_controller/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diff_drive_controller.dir/build.make CMakeFiles/diff_drive_controller.dir/build
+.PHONY : diff_drive_controller/fast
+
+src/diff_drive_controller.o: src/diff_drive_controller.cpp.o
+.PHONY : src/diff_drive_controller.o
+
+# target to build an object file
+src/diff_drive_controller.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diff_drive_controller.dir/build.make CMakeFiles/diff_drive_controller.dir/src/diff_drive_controller.cpp.o
+.PHONY : src/diff_drive_controller.cpp.o
+
+src/diff_drive_controller.i: src/diff_drive_controller.cpp.i
+.PHONY : src/diff_drive_controller.i
+
+# target to preprocess a source file
+src/diff_drive_controller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diff_drive_controller.dir/build.make CMakeFiles/diff_drive_controller.dir/src/diff_drive_controller.cpp.i
+.PHONY : src/diff_drive_controller.cpp.i
+
+src/diff_drive_controller.s: src/diff_drive_controller.cpp.s
+.PHONY : src/diff_drive_controller.s
+
+# target to generate assembly for a file
+src/diff_drive_controller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diff_drive_controller.dir/build.make CMakeFiles/diff_drive_controller.dir/src/diff_drive_controller.cpp.s
+.PHONY : src/diff_drive_controller.cpp.s
+
+src/odometry.o: src/odometry.cpp.o
+.PHONY : src/odometry.o
+
+# target to build an object file
+src/odometry.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diff_drive_controller.dir/build.make CMakeFiles/diff_drive_controller.dir/src/odometry.cpp.o
+.PHONY : src/odometry.cpp.o
+
+src/odometry.i: src/odometry.cpp.i
+.PHONY : src/odometry.i
+
+# target to preprocess a source file
+src/odometry.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diff_drive_controller.dir/build.make CMakeFiles/diff_drive_controller.dir/src/odometry.cpp.i
+.PHONY : src/odometry.cpp.i
+
+src/odometry.s: src/odometry.cpp.s
+.PHONY : src/odometry.s
+
+# target to generate assembly for a file
+src/odometry.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diff_drive_controller.dir/build.make CMakeFiles/diff_drive_controller.dir/src/odometry.cpp.s
+.PHONY : src/odometry.cpp.s
+
+src/speed_limiter.o: src/speed_limiter.cpp.o
+.PHONY : src/speed_limiter.o
+
+# target to build an object file
+src/speed_limiter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diff_drive_controller.dir/build.make CMakeFiles/diff_drive_controller.dir/src/speed_limiter.cpp.o
+.PHONY : src/speed_limiter.cpp.o
+
+src/speed_limiter.i: src/speed_limiter.cpp.i
+.PHONY : src/speed_limiter.i
+
+# target to preprocess a source file
+src/speed_limiter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diff_drive_controller.dir/build.make CMakeFiles/diff_drive_controller.dir/src/speed_limiter.cpp.i
+.PHONY : src/speed_limiter.cpp.i
+
+src/speed_limiter.s: src/speed_limiter.cpp.s
+.PHONY : src/speed_limiter.s
+
+# target to generate assembly for a file
+src/speed_limiter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diff_drive_controller.dir/build.make CMakeFiles/diff_drive_controller.dir/src/speed_limiter.cpp.s
+.PHONY : src/speed_limiter.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -212,6 +297,16 @@ help:
 	@echo "... test"
 	@echo "... iir_base_uninstall"
 	@echo "... uninstall"
+	@echo "... diff_drive_controller"
+	@echo "... src/diff_drive_controller.o"
+	@echo "... src/diff_drive_controller.i"
+	@echo "... src/diff_drive_controller.s"
+	@echo "... src/odometry.o"
+	@echo "... src/odometry.i"
+	@echo "... src/odometry.s"
+	@echo "... src/speed_limiter.o"
+	@echo "... src/speed_limiter.i"
+	@echo "... src/speed_limiter.s"
 .PHONY : help
 
 

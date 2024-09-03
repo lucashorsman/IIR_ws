@@ -272,13 +272,13 @@ PKG_CONFIG_ARGN:STRING=
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
 //Name of the computer/site where compile is being run
-SITE:STRING=ripnuc1
+SITE:STRING=ripnuc2
 
 //The directory containing a CMake configuration file for TinyXML2.
 TinyXML2_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/tinyxml2
 
 //Path to a library.
-_lib:FILEPATH=/opt/ros/jazzy/lib/libtf2_msgs__rosidl_typesupport_fastrtps_cpp.so
+_lib:FILEPATH=/opt/ros/jazzy/lib/libdiagnostic_msgs__rosidl_typesupport_fastrtps_cpp.so
 
 //The directory containing a CMake configuration file for action_msgs.
 action_msgs_DIR:PATH=/opt/ros/jazzy/share/action_msgs/cmake
@@ -379,6 +379,9 @@ ament_uncrustify_BIN:FILEPATH=/opt/ros/jazzy/bin/ament_uncrustify
 //Path to a program.
 ament_xmllint_BIN:FILEPATH=/opt/ros/jazzy/bin/ament_xmllint
 
+//The directory containing a CMake configuration file for backward_ros.
+backward_ros_DIR:PATH=/opt/ros/jazzy/share/backward_ros/cmake
+
 //The directory containing a CMake configuration file for builtin_interfaces.
 builtin_interfaces_DIR:PATH=/opt/ros/jazzy/share/builtin_interfaces/cmake
 
@@ -394,8 +397,23 @@ control_msgs_DIR:PATH=/opt/ros/jazzy/share/control_msgs/cmake
 //The directory containing a CMake configuration file for controller_interface.
 controller_interface_DIR:PATH=/opt/ros/jazzy/share/controller_interface/cmake
 
+//The directory containing a CMake configuration file for controller_manager.
+controller_manager_DIR:PATH=/opt/ros/jazzy/share/controller_manager/cmake
+
+//The directory containing a CMake configuration file for controller_manager_msgs.
+controller_manager_msgs_DIR:PATH=/opt/ros/jazzy/share/controller_manager_msgs/cmake
+
+//The directory containing a CMake configuration file for diagnostic_msgs.
+diagnostic_msgs_DIR:PATH=/opt/ros/jazzy/share/diagnostic_msgs/cmake
+
+//The directory containing a CMake configuration file for diagnostic_updater.
+diagnostic_updater_DIR:PATH=/opt/ros/jazzy/share/diagnostic_updater/cmake
+
 //The directory containing a CMake configuration file for diff_drive_controller.
-diff_drive_controller_DIR:PATH=/home/riplab/IIR_ws/install/diff_drive_controller/share/diff_drive_controller/cmake
+diff_drive_controller_DIR:PATH=/opt/ros/jazzy/share/diff_drive_controller/cmake
+
+//Dependencies for the target
+diff_drive_controller_LIB_DEPENDS:STATIC=general;hardware_interface::mock_components;general;hardware_interface::hardware_interface;general;rclcpp::rclcpp;general;rclcpp_lifecycle::rclcpp_lifecycle;general;diff_drive_controller::diff_drive_controller;general;controller_manager::controller_manager;general;ament_index_cpp::ament_index_cpp;general;/opt/ros/jazzy/lib/libbackward.so;
 
 //The directory containing a CMake configuration file for fastcdr.
 fastcdr_DIR:PATH=/opt/ros/jazzy/lib/cmake/fastcdr
@@ -493,6 +511,9 @@ rclcpp_action_DIR:PATH=/opt/ros/jazzy/share/rclcpp_action/cmake
 //The directory containing a CMake configuration file for rclcpp_lifecycle.
 rclcpp_lifecycle_DIR:PATH=/opt/ros/jazzy/share/rclcpp_lifecycle/cmake
 
+//The directory containing a CMake configuration file for rclpy.
+rclpy_DIR:PATH=/opt/ros/jazzy/share/rclpy/cmake
+
 //The directory containing a CMake configuration file for rcpputils.
 rcpputils_DIR:PATH=/opt/ros/jazzy/share/rcpputils/cmake
 
@@ -520,8 +541,11 @@ rmw_implementation_DIR:PATH=/opt/ros/jazzy/share/rmw_implementation/cmake
 //The directory containing a CMake configuration file for rmw_implementation_cmake.
 rmw_implementation_cmake_DIR:PATH=/opt/ros/jazzy/share/rmw_implementation_cmake/cmake
 
-//The directory containing a CMake configuration file for ros2_control_demo_testing.
-ros2_control_demo_testing_DIR:PATH=ros2_control_demo_testing_DIR-NOTFOUND
+//The directory containing a CMake configuration file for ros2_control.
+ros2_control_DIR:PATH=/opt/ros/jazzy/share/ros2_control/cmake
+
+//The directory containing a CMake configuration file for ros2_controllers.
+ros2_controllers_DIR:PATH=/opt/ros/jazzy/share/ros2_controllers/cmake
 
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/jazzy/share/rosgraph_msgs/cmake
@@ -630,6 +654,9 @@ xacro_DIR:PATH=/opt/ros/jazzy/share/xacro/cmake
 
 //Path to a program.
 xmllint_BIN:FILEPATH=/usr/bin/xmllint
+
+//The directory containing a CMake configuration file for yaml_cpp_vendor.
+yaml_cpp_vendor_DIR:PATH=/opt/ros/jazzy/share/yaml_cpp_vendor/cmake
 
 
 ########################
