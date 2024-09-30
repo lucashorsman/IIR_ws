@@ -1,4 +1,11 @@
-/home/riplab/IIR_ws/install/iir_base/share/iir_base/urdf/iirbot_view.rviz
+/home/riplab/IIR_ws/install/iir_base/share/iir_base/environment/pythonpath.sh
+/home/riplab/IIR_ws/install/iir_base/share/iir_base/environment/pythonpath.dsv
+/home/riplab/IIR_ws/install/iir_base/lib/python3.12/site-packages/src-0.0.0-py3.12.egg-info/PKG-INFO
+/home/riplab/IIR_ws/install/iir_base/lib/python3.12/site-packages/src-0.0.0-py3.12.egg-info/SOURCES.txt
+/home/riplab/IIR_ws/install/iir_base/lib/python3.12/site-packages/src-0.0.0-py3.12.egg-info/dependency_links.txt
+/home/riplab/IIR_ws/install/iir_base/lib/python3.12/site-packages/src-0.0.0-py3.12.egg-info/top_level.txt
+/home/riplab/IIR_ws/install/iir_base/lib/python3.12/site-packages/src/__init__.py
+/home/riplab/IIR_ws/install/iir_base/lib/python3.12/site-packages/src/scripts/tf2_publish.py
 /home/riplab/IIR_ws/install/iir_base/share/iir_base/urdf/real.urdf
 /home/riplab/IIR_ws/install/iir_base/share/iir_base/urdf/iirbot.ros2_control.xacro
 /home/riplab/IIR_ws/install/iir_base/share/iir_base/urdf/iir_description.urdf.xacro
@@ -6,8 +13,14 @@
 /home/riplab/IIR_ws/install/iir_base/share/iir_base/urdf/iir.materials.xacro
 /home/riplab/IIR_ws/install/iir_base/share/iir_base/launch/view_robot.launch.py
 /home/riplab/IIR_ws/install/iir_base/share/iir_base/launch/diffbot.launch.py
+/home/riplab/IIR_ws/install/iir_base/share/iir_base/config/iirbot_view.rviz
 /home/riplab/IIR_ws/install/iir_base/share/iir_base/config/diffbot_controllers.yaml
-/home/riplab/IIR_ws/install/iir_base/share/iir_base/diff_drive_controller.xml
+/home/riplab/IIR_ws/install/iir_base/share/iir_base/config/ekf.yaml
+/home/riplab/IIR_ws/install/iir_base/share/iir_base/config/nav2_default_view.rviz
+/home/riplab/IIR_ws/install/iir_base/share/iir_base/config/gz_ros_bridge.yaml
+/home/riplab/IIR_ws/install/iir_base/share/iir_base/src/__init__.py
+/home/riplab/IIR_ws/install/iir_base/share/iir_base/src/scripts/tf2_publish.py
+/home/riplab/IIR_ws/install/iir_base/lib/iir_base/tf2_publish.py
 /home/riplab/IIR_ws/install/iir_base/share/ament_index/resource_index/package_run_dependencies/iir_base
 /home/riplab/IIR_ws/install/iir_base/share/ament_index/resource_index/parent_prefix_path/iir_base
 /home/riplab/IIR_ws/install/iir_base/share/iir_base/environment/ament_prefix_path.sh
@@ -20,7 +33,6 @@
 /home/riplab/IIR_ws/install/iir_base/share/iir_base/local_setup.dsv
 /home/riplab/IIR_ws/install/iir_base/share/iir_base/package.dsv
 /home/riplab/IIR_ws/install/iir_base/share/ament_index/resource_index/packages/iir_base
-/home/riplab/IIR_ws/install/iir_base/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/iir_base
 /home/riplab/IIR_ws/install/iir_base/share/iir_base/cmake/ament_cmake_export_dependencies-extras.cmake
 /home/riplab/IIR_ws/install/iir_base/share/iir_base/cmake/iir_baseConfig.cmake
 /home/riplab/IIR_ws/install/iir_base/share/iir_base/cmake/iir_baseConfig-version.cmake

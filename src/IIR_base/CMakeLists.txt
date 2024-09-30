@@ -35,26 +35,13 @@ find_package(pluginlib REQUIRED) # Add this line
 # find dependencies
 find_package(backward_ros REQUIRED)
 find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_python REQUIRED)
+find_package(rclpy REQUIRED)
 foreach(Dependency IN ITEMS ${THIS_PACKAGE_INCLUDE_DEPENDS})
   find_package(${Dependency} REQUIRED)
 endforeach()
 
-add_library(diff_drive_controller SHARED
-  src/diff_drive_controller.cpp
-  src/odometry.cpp
-  src/speed_limiter.cpp
-)
-target_compile_features(diff_drive_controller PUBLIC cxx_std_17)
-target_include_directories(diff_drive_controller PUBLIC
-  $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include/diff_drive_controller>
-)
-ament_target_dependencies(diff_drive_controller PUBLIC ${THIS_PACKAGE_INCLUDE_DEPENDS})
-# Causes the visibility macros to use dllexport rather than dllimport,
-# which is appropriate when building the dll but not consuming it.
-target_compile_definitions(diff_drive_controller PRIVATE "DIFF_DRIVE_CONTROLLER_BUILDING_DLL")
-
-
+ament_python_install_package(src)
 install(DIRECTORY urdf/ 
   DESTINATION share/${PROJECT_NAME}/urdf
 )
@@ -63,6 +50,15 @@ install(DIRECTORY launch/
 )
 install(DIRECTORY config/ 
   DESTINATION share/${PROJECT_NAME}/config
+)
+
+install(DIRECTORY src/ 
+  DESTINATION share/${PROJECT_NAME}/src
+)
+
+install(PROGRAMS
+  src/scripts/tf2_publish.py
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 
@@ -78,6 +74,5 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 ament_export_dependencies(${THIS_PACKAGE_INCLUDE_DEPENDS})
-pluginlib_export_plugin_description_file(hardware_interface diff_drive_controller.xml)
 
 ament_package()

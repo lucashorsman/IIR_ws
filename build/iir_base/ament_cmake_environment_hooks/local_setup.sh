@@ -153,6 +153,7 @@ fi
 # list all environment hooks of this package
 ament_append_value AMENT_ENVIRONMENT_HOOKS "$AMENT_CURRENT_PREFIX/share/iir_base/environment/ament_prefix_path.sh"
 ament_append_value AMENT_ENVIRONMENT_HOOKS "$AMENT_CURRENT_PREFIX/share/iir_base/environment/path.sh"
+ament_append_value AMENT_ENVIRONMENT_HOOKS "$AMENT_CURRENT_PREFIX/share/iir_base/environment/pythonpath.sh"
 
 # source all shell-specific environment hooks of this package
 # if not returning them

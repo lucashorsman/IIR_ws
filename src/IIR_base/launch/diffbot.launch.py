@@ -67,13 +67,32 @@ def generate_launch_description():
         ]
     )
     rviz_config_file = PathJoinSubstitution(
-        [FindPackageShare("iir_base"), "src/urdf", "iirbot.rviz"]
+        [FindPackageShare("iir_base"), "config", "iirbot_view.rviz"]
     )
+    nav_rviz_config_file = PathJoinSubstitution(
+        [FindPackageShare("iir_base"), "config", "nav2_default_view.rviz"]
+    )
+
+    bridge_params = PathJoinSubstitution(
+        [
+    FindPackageShare('iir_base'),
+    'config',
+    'gz_ros_bridge.yaml'
+])
+    
+    ekf_params = PathJoinSubstitution(
+        [
+    FindPackageShare('iir_base'),
+    'config',
+    'ekf.yaml'
+])
 
     control_node = Node(
         package="controller_manager",
         executable="ros2_control_node",
-        parameters=[{'robot_description': robot_description}, robot_controllers],
+
+        parameters=[{'robot_description': robot_description}, robot_controllers,{'use_sim_time': True}],
+        condition=(IfCondition(use_mock_hardware))
             
 
     )
@@ -81,9 +100,9 @@ def generate_launch_description():
         package="robot_state_publisher",
         executable="robot_state_publisher",
         output="both",
-        parameters=[robot_description],
+        parameters=[robot_description,{'use_sim_time': True}],
         remappings=[
-            ("/diff_cont/cmd_vel_unstamped", "/cmd_vel"),
+            ("/diff_drive_controller/cmd_vel_unstamped", "/cmd_vel"),
         ],
     )
     rviz_node = Node(
@@ -91,22 +110,42 @@ def generate_launch_description():
         executable="rviz2",
         name="rviz2",
         output="log",
-        arguments=["-d", rviz_config_file],
+        arguments=["-d", nav_rviz_config_file],
+        parameters=[{'use_sim_time': True}],
         condition=IfCondition(gui),
     )
-
+    joint_state_publisher = Node(
+    package="joint_state_publisher",
+    executable="joint_state_publisher",
+    parameters=[{'use_sim_time': True}]
+    
+)
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["joint_state_broadcaster"],
+        arguments=["joint_broad"],
     )
 
     robot_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["diff_cont", "--param-file", robot_controllers],
+        arguments=["diff_drive_controller", "--param-file", robot_controllers],
     )
 
+    #static transform publisher - this should be somewhre else but im just testing
+    #apparently, this doesnt work here, but if we launch it in a terminal elsewhere it actually does publish the map->odom transform +map frame
+    static_transform_publisher = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        name="link_broad",
+        arguments=['0', '0', '0', '0', '0', '0', '0', 'map', 'odom'],
+        output='screen'
+
+    )
+    my_tf_publisher = Node(
+        package="iir_base",
+        executable="tf2_publish.py"
+    )
     # Delay rviz start after `joint_state_broadcaster`
     delay_rviz_after_joint_state_broadcaster_spawner = RegisterEventHandler(
         event_handler=OnProcessExit(
@@ -114,7 +153,19 @@ def generate_launch_description():
             on_exit=[rviz_node],
         )
     )
-
+    bridge = Node(
+            package='ros_gz_bridge',
+            executable='parameter_bridge',
+            parameters=[{'config_file': bridge_params},{'use_sim_time': True}],
+            output='screen'
+        )
+    robot_localization_node = Node(
+       package='robot_localization',
+       executable='ekf_node',
+       name='ekf_filter_node',
+       output='screen',
+       parameters=[ekf_params, {'use_sim_time' : True}]
+       )
     # Delay start of joint_state_broadcaster after `robot_controller`
     # TODO(anyone): This is a workaround for flaky tests. Remove when fixed.
     delay_joint_state_broadcaster_after_robot_controller_spawner = RegisterEventHandler(
@@ -125,11 +176,16 @@ def generate_launch_description():
     )
 
     nodes = [
-        control_node,
+        # static_transform_publisher,
+        # robot_localization_node,
+        control_node, #make it so this is on when using 'mock hardware' and not on when using gz
         robot_state_pub_node,
+        # bridge,
         robot_controller_spawner,
-        rviz_node,
         joint_state_broadcaster_spawner,
+        rviz_node,
+        joint_state_publisher,
+        # my_tf_publisher,
         
     ]
 
